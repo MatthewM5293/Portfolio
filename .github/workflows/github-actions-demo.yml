@@ -3,8 +3,8 @@ name: Deploy Portfolio Website
 on:
   push:
     branches:
-      - main  # Ensure this matches the branch you're working on.
-
+      - main
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
