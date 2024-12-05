@@ -1,20 +1,21 @@
-name: Deploy to GitHub Pages
+name: Deploy Portfolio Website
 
 on:
   push:
     branches:
-      - main
+      - main  # Ensure this matches the branch you're working on.
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        run: mkdir -p public && cp -r Portfolio-paradigm-shift/* public/
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages  # The branch for GitHub Pages deployment.
+        publish_dir: Portfolio-paradigm-shift  # Folder containing your portfolio files.
